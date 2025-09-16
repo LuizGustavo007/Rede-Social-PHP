@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
             $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
             if ($stmt->execute([$name, $email, $hashed_password])) {
-                $message = "Cadastro realizado com sucesso! <a href='login.php'>Faça login</a>.";
+                $message = "Cadastro realizado com sucesso! <a href='../index.php'>Faça login</a>.";
             } else {
                 $message = "Erro ao cadastrar usuário.";
             }

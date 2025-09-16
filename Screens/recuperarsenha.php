@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_password = password_hash($new_password, PASSWORD_BCRYPT);
             $update = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
             if ($update->execute([$hashed_password, $user['id']])) {
-                $message = "Senha atualizada com sucesso! <a href='login.php'>Faça login</a>.";
+                $message = "Senha atualizada com sucesso! <a href='../index.php'>Faça login</a>.";
             } else {
                 $message = "Erro ao atualizar a senha.";
             }
