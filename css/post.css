@@ -62,7 +62,7 @@ body::after {
 
 .navbar a {
   color: #fff;
-  /* text-decoration: none; */
+  text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
   border-bottom: 2px solid transparent;
@@ -70,7 +70,7 @@ body::after {
 
 .navbar a:hover {
   color: #b366ff;
-  /* border-color: #b366ff; */
+  border-color: #b366ff;
 }
 
 /* Links gerais */
@@ -89,9 +89,10 @@ a:hover {
    3. Conteúdo central
    ========================= */
 .container {
-  width: 80%;
-  max-width: 800px;
-  margin: 30px auto;
+  width: 90%;
+  max-width: 600px; /* menor que antes */
+  margin: 50px auto; /* centralizado e com espaçamento superior */
+  padding: 20px;
   position: relative;
   z-index: 2;
 }
@@ -111,26 +112,29 @@ h2 {
    4. Formulários
    ========================= */
 form {
+  width: 100%;
+  max-width: 500px; /* deixa o form menor */
+  margin: 20px auto; /* centralizado */
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 12px;
   padding: 15px;
-  margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
 }
 
 textarea {
-  width: 100%;
-  min-height: 80px;
+  width: 96%;
+  height: 100px; /* tamanho fixo */
   padding: 10px;
   border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.3);
   background: rgba(0,0,0,0.3);
   color: #fff;
-  resize: vertical;
+  resize: none; /* não permite redimensionar */
   margin-bottom: 10px;
 }
+
 
 input[type="file"] {
   margin-bottom: 10px;
@@ -154,11 +158,13 @@ button:hover {
    5. Posts individuais
    ========================= */
 .post {
+  width: 100%;
+  max-width: 500px; /* menor que antes */
+  margin: 20px auto; /* centralizado */
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 12px;
   padding: 15px;
-  margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
