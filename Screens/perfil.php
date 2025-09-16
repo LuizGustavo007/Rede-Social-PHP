@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require '../database/db.php';
@@ -94,10 +95,17 @@ $all_users = $stmt->fetchAll();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/perfil.css">
     <title>Perfil de <?= htmlspecialchars($user['name']) ?></title>
 </head>
 <body>
-
+<div class="navbar">
+    <a href="feed.php">Feed</a>
+    <a href="post.php">Novo Post</a>
+    <a href="chat.php">Conversar</a>
+    <a href="perfil.php">Meu Perfil</a>
+    <a href="logout.php">Sair</a>
+</div>
 <h2>Perfil de <?= htmlspecialchars($user['name']) ?></h2>
 <?php if($message) echo "<p><strong>$message</strong></p>"; ?>
 
@@ -142,7 +150,6 @@ $all_users = $stmt->fetchAll();
 </form>
 
 <br>
-<a href="feed.php">Voltar ao Feed</a> | <a href="logout.php">Sair</a>
 
 </body>
 </html>

@@ -52,18 +52,16 @@ if(isset($_GET['alvo_id'])){
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/chat.css">
+<div class="navbar">
+    <a href="feed.php">Feed</a>
+    <a href="post.php">Novo Post</a>
+    <a href="chat.php">Conversar</a>
+    <a href="perfil.php">Meu Perfil</a>
+    <a href="logout.php">Sair</a>
+</div>
 <title>Chat Social</title>
-<style>
-body {font-family:Arial,sans-serif;background:#f5f5f5;padding:20px;margin:0;}
-h2 {margin-top:0;}
-ul {list-style:none;padding:0;}
-li {margin:5px 0;}
-button {padding:8px 12px;border:none;border-radius:5px;background:#4CAF50;color:white;cursor:pointer;}
-#chat-box {display:none;background:white;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);padding:15px;max-width:500px;margin-top:20px;}
-#messages {height:300px;overflow-y:auto;border:1px solid #ddd;padding:10px;margin-bottom:10px;}
-.msg {margin:5px 0;}
-.me {color:#4CAF50;}
-</style>
+
 </head>
 <body>
 
