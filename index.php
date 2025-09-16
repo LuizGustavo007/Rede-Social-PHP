@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
+<link rel="stylesheet" href="css/index.css">
 <h2>Login</h2>
 <?php if($message) echo "<p>$message</p>"; ?>
 <form method="post">
@@ -31,4 +31,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Senha: <input type="password" name="password" required><br>
     <button type="submit">Entrar</button>
 </form>
-<a href="Screens/cadastro.php">Cadastre-se</a> | <a href="Screens/recuperarsenha.php">Esqueci minha senha</a>
+<a href="Screens/cadastro.php">Cadastre-se</a> <a href="Screens/recuperarsenha.php">Esqueci minha senha</a>
