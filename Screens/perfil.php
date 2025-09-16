@@ -14,7 +14,7 @@ $message = '';
 // =========================
 // Atualizar perfil
 // =========================
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profile'])) {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
 
@@ -46,6 +46,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // =========================
+// Adicionar amigo
+// =========================
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_friend'])) {
+    $friend_id = intval($_POST['friend_id']);
+
+    if ($friend_id !== $user_id) {
+        // Inserir amizade nos dois sentidos
+        $stmt = $pdo->prepare("INSERT IGNORE INTO friends (user_id, friend_id, status) VALUES (?, ?, 'accepted')");
+        $stmt->execute([$user_id, $friend_id]);
+
+        $stmt = $pdo->prepare("INSERT IGNORE INTO friends (user_id, friend_id, status) VALUES (?, ?, 'accepted')");
+        $stmt->execute([$friend_id, $user_id]);
+
+        $message = "Amigo adicionado com sucesso!";
+    }
+}
+
+// =========================
 // Buscar informações do usuário
 // =========================
 $stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
@@ -64,12 +82,28 @@ $stmt = $pdo->prepare("
 $stmt->execute([$user_id]);
 $friends = $stmt->fetchAll();
 
+// =========================
+// Buscar todos usuários (para select de adicionar amigo)
+// =========================
+$stmt = $pdo->prepare("SELECT id, name FROM users WHERE id != ?");
+$stmt->execute([$user_id]);
+$all_users = $stmt->fetchAll();
+
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de <?= htmlspecialchars($user['name']) ?></title>
+</head>
+<body>
 
 <h2>Perfil de <?= htmlspecialchars($user['name']) ?></h2>
-<?php if($message) echo "<p>$message</p>"; ?>
+<?php if($message) echo "<p><strong>$message</strong></p>"; ?>
 
+<!-- Formulário de atualização de perfil -->
 <form method="post" enctype="multipart/form-data">
+    <input type="hidden" name="update_profile" value="1">
     Nome: <input type="text" name="name" value="<?= htmlspecialchars($user['name']) ?>" required><br>
     E-mail: <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required><br>
     Nova senha: <input type="password" name="password" placeholder="Deixe vazio para não alterar"><br>
@@ -80,6 +114,9 @@ $friends = $stmt->fetchAll();
     <button type="submit">Atualizar perfil</button>
 </form>
 
+<hr>
+
+<!-- Lista de amigos -->
 <h3>Lista de Amigos</h3>
 <?php if(count($friends) === 0): ?>
     <p>Você não tem amigos adicionados.</p>
@@ -91,4 +128,21 @@ $friends = $stmt->fetchAll();
     </ul>
 <?php endif; ?>
 
+<!-- Adicionar novo amigo -->
+<h3>Adicionar Amigo</h3>
+<form method="post">
+    <input type="hidden" name="add_friend" value="1">
+    <select name="friend_id" required>
+        <option value="">Selecione um usuário</option>
+        <?php foreach($all_users as $u): ?>
+            <option value="<?= $u['id'] ?>"><?= htmlspecialchars($u['name']) ?></option>
+        <?php endforeach; ?>
+    </select>
+    <button type="submit">Adicionar</button>
+</form>
+
+<br>
 <a href="feed.php">Voltar ao Feed</a> | <a href="logout.php">Sair</a>
+
+</body>
+</html>

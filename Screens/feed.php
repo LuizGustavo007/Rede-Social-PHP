@@ -4,7 +4,7 @@ require '../database/db.php';
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: index.php"); // redireciona para login
     exit;
 }
 
@@ -36,21 +36,41 @@ $stmt->execute($friends);
 $posts = $stmt->fetchAll();
 ?>
 
-<h2>Feed de <?= htmlspecialchars($_SESSION['user_name']) ?></h2>
-<a href="perfil.php">Meu Perfil</a> | <a href="logout.php">Sair</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+</head>
+<body>
 
-<!-- Exibição dos posts -->
-<?php if(empty($posts)): ?>
-    <p>Nenhum post encontrado.</p>
-<?php else: ?>
-    <?php foreach($posts as $post): ?>
-        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
-            <strong><?= htmlspecialchars($post['name']) ?></strong>
-            <em><?= $post['created_at'] ?></em><br>
-            <?= nl2br(htmlspecialchars($post['content'])) ?><br>
-            <?php if($post['media_path']): ?>
-                <img src="<?= htmlspecialchars($post['media_path']) ?>" width="300"><br>
-            <?php endif; ?>
-        </div>
-    <?php endforeach; ?>
-<?php endif; ?>
+<!-- Navbar -->
+<div class="navbar">
+    <a href="feed.php">Feed</a>
+    <a href="post.php">Novo Post</a>
+    <a href="perfil.php">Meu Perfil</a>
+    <a href="logout.php">Sair</a>
+</div>
+
+<div class="container">
+    <h2>Bem-vindo, <?= htmlspecialchars($_SESSION['user_name']) ?> 👋</h2>
+
+    <!-- Exibição dos posts -->
+    <?php if(empty($posts)): ?>
+        <p>Nenhum post encontrado.</p>
+    <?php else: ?>
+        <?php foreach($posts as $post): ?>
+            <div class="post">
+                <strong><?= htmlspecialchars($post['name']) ?></strong>
+                <em> - <?= $post['created_at'] ?></em><br>
+                <?= nl2br(htmlspecialchars($post['content'])) ?><br>
+                <?php if($post['media_path']): ?>
+                    <img src="<?= htmlspecialchars($post['media_path']) ?>">
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
+
+</body>
+</html>
