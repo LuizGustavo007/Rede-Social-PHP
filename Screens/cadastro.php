@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<link rel="stylesheet" href="../css/cadastro.css">
 
 <h2>Cadastro</h2>
 <?php if($message) echo "<p>$message</p>"; ?>
