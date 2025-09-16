@@ -41,19 +41,20 @@ $posts = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Feed</title>
+    <link rel="stylesheet" href="../css/feed.css">
 </head>
 <body>
 
 <!-- Navbar -->
 <div class="navbar">
     <a href="feed.php">Feed</a>
-    <a href="post.php">Novo Post</a>
+    <a href="post.php">Post</a>
     <a href="perfil.php">Meu Perfil</a>
     <a href="logout.php">Sair</a>
 </div>
 
 <div class="container">
-    <h2>Bem-vindo, <?= htmlspecialchars($_SESSION['user_name']) ?> 👋</h2>
+    <h2>Bem-vindo, <?= htmlspecialchars($_SESSION['user_name']) ?> </h2>
 
     <!-- Exibição dos posts -->
     <?php if(empty($posts)): ?>
