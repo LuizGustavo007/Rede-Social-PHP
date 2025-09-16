@@ -157,7 +157,7 @@ button:hover {
 /* =========================
    5. Posts individuais
    ========================= */
-.post {
+form {
   width: 100%;
   max-width: 500px; /* menor que antes */
   margin: 20px auto; /* centralizado */
@@ -170,25 +170,25 @@ button:hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.post:hover {
+form:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 14px rgba(0,0,0,0.6);
 }
 
-.post img {
+form img {
   max-width: 100%;
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
-.post a {
+form a {
   margin-left: 10px;
   color: #b366ff;
   font-weight: bold;
 }
 
-.post a:hover {
+form a:hover {
   color: #fff;
 }
 

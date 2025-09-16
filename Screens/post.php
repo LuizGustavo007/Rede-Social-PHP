@@ -101,7 +101,8 @@ $posts = $stmt->fetchAll();
 <body>
 <div class="navbar">
     <a href="feed.php">Feed</a>
-    <a href="post.php">Post</a>
+    <a href="post.php">Novo Post</a>
+    <a href="chat.php">Conversar</a>
     <a href="perfil.php">Meu Perfil</a>
     <a href="logout.php">Sair</a>
 </div>
@@ -125,7 +126,7 @@ $posts = $stmt->fetchAll();
     <p>Você ainda não publicou nenhum post.</p>
 <?php else: ?>
     <?php foreach($posts as $post): ?>
-        <div class="post">
+       
             <form method="post" enctype="multipart/form-data">
                 <input type="hidden" name="post_id" value="<?= $post['id'] ?>">
                 <textarea name="content"><?= htmlspecialchars($post['content']) ?></textarea><br>
@@ -138,7 +139,7 @@ $posts = $stmt->fetchAll();
                 <button type="submit" name="edit_post">Atualizar</button>
                 <a href="?delete=<?= $post['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este post?')">Excluir</a>
             </form>
-        </div>
+    
     <?php endforeach; ?>
 <?php endif; ?>
 

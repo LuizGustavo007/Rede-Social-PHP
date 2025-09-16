@@ -61,11 +61,19 @@ if(isset($_GET['alvo_id'])){
     <a href="logout.php">Sair</a>
 </div>
 <title>Chat Social</title>
-
+<style>
+h2 {margin-top:0;}
+ul {list-style:none;padding:0;}
+li {margin:5px 0;}
+button {padding:8px 12px;border:none;border-radius:5px;background:#4CAF50;color:black;cursor:pointer;}
+#chat-box {display:none;background:white;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);padding:15px;max-width:500px;margin-top:20px;}
+#messages {height:300px;overflow-y:auto;border:1px solid #ddd;padding:10px;margin-bottom:10px; color: black;}
+.msg {margin:5px 0;}
+.me {color:#4b0082;}
+</style>
 </head>
 <body>
 
-<h2>Amigos</h2>
 <ul>
 <?php foreach($amigos as $a): ?>
     <li><button class="open-chat" data-id="<?= $a['id'] ?>" data-nome="<?= htmlspecialchars($a['name']) ?>"><?= htmlspecialchars($a['name']) ?></button></li>

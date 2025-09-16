@@ -19,21 +19,22 @@ body::after {
   left: 0;
   width: 200%;
   height: 200%;
-  background-image: radial-gradient(2px 2px at 20px 20px, #ffffff 50%, transparent 50%),
-                    radial-gradient(2px 2px at 100px 50px, #b366ff 50%, transparent 50%),
-                    radial-gradient(2px 2px at 200px 150px, #ffffff 50%, transparent 50%),
-                    radial-gradient(2px 2px at 300px 250px, #b366ff 50%, transparent 50%),
-                    radial-gradient(2px 2px at 400px 350px, #ffffff 50%, transparent 50%);
+  background-image:
+    radial-gradient(2px 2px at 20px 20px, #ffffff 50%, transparent 50%),
+    radial-gradient(2px 2px at 100px 50px, #b366ff 50%, transparent 50%),
+    radial-gradient(2px 2px at 200px 150px, #ffffff 50%, transparent 50%),
+    radial-gradient(2px 2px at 300px 250px, #b366ff 50%, transparent 50%),
+    radial-gradient(2px 2px at 400px 350px, #ffffff 50%, transparent 50%);
   background-size: 400px 400px;
   animation: moveStars 60s linear infinite;
-  opacity: 0.5;
+  opacity: 0.6;
   pointer-events: none;
   z-index: 0;
 }
 
 body::after {
   animation-duration: 120s;
-  opacity: 0.25;
+  opacity: 0.3;
 }
 
 /* Animação estrelas */
@@ -67,13 +68,16 @@ body::after {
   color: #b366ff;
   border-color: #b366ff;
 }
-/* Amigos */
+
+/* Lista de Amigos */
 ul {
   list-style: none;
   padding: 0;
-  margin-top: 70px; /* pra não ficar atrás da navbar */
+  margin-top: 80px; /* espaço da navbar */
   width: 100%;
   max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 li {
@@ -81,31 +85,32 @@ li {
 }
 
 button.open-chat {
-  padding: 10px 15px;
+  padding: 12px 18px;
   width: 100%;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background-color: #8000ff;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button.open-chat:hover {
   background-color: #4b0082;
+  transform: translateY(-2px);
 }
 
 /* Chat Box */
 #chat-box {
   display: none;
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
   padding: 20px;
   width: 100%;
   max-width: 500px;
-  margin-top: 20px;
+  margin: 20px auto;
   position: relative;
   z-index: 2;
 }
@@ -129,10 +134,12 @@ button.open-chat:hover {
 
 .msg {
   margin: 5px 0;
+  word-wrap: break-word;
 }
 
 .msg.me {
   color: #4CAF50;
+  font-weight: bold;
 }
 
 #chat-form {
@@ -171,6 +178,9 @@ button.open-chat:hover {
   }
   .navbar {
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+  }
+  button.open-chat {
+    padding: 10px;
   }
 }
