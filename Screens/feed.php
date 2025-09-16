@@ -48,6 +48,7 @@ $posts = $stmt->fetchAll();
 <div class="navbar">
     <a href="feed.php">Feed</a>
     <a href="post.php">Novo Post</a>
+    <a href="chat.php">Conversar</a>
     <a href="perfil.php">Meu Perfil</a>
     <a href="logout.php">Sair</a>
 </div>

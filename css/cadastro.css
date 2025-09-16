@@ -1,0 +1,152 @@
+/* styles.css - Cadastro e Login - Fundo estrelado com degradê */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(160deg, #1a001a 0%, #2e004f 50%, #000000 100%);
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estrelas animadas */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(2px 2px at 20px 20px, #ffffff 50%, transparent 50%),
+                    radial-gradient(2px 2px at 100px 50px, #b366ff 50%, transparent 50%),
+                    radial-gradient(2px 2px at 200px 150px, #ffffff 50%, transparent 50%),
+                    radial-gradient(2px 2px at 300px 250px, #b366ff 50%, transparent 50%),
+                    radial-gradient(2px 2px at 400px 350px, #ffffff 50%, transparent 50%);
+  background-size: 400px 400px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.5;
+  pointer-events: none; 
+  z-index: 0; 
+}
+
+body::after {
+  animation-duration: 120s;
+  opacity: 0.25;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+h2 {
+  color: #ffffff;
+  border-bottom: 3px solid #8000ff;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+p {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-left: 4px solid #8000ff;
+  color: #4b0082;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 25px 30px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+form label {
+  font-weight: bold;
+  color: #4b0082;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+  color: #222;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #8000ff;
+  background-color: #fff;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8000ff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #4b0082;
+}
+
+a {
+  color: #b366ff;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 5px;
+  padding: 4px 6px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+  border-color: #b366ff;
+  color: #fff;
+}
+
+.links {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+form input::placeholder {
+  color: #888;
+}
+
+form button:active {
+  background-color: #3a0066;
+}
