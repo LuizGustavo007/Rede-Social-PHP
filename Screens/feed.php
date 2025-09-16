@@ -44,12 +44,8 @@ $posts = $stmt->fetchAll();
 
 <div class="navbar">
     <a href="feed.php">Feed</a>
-<<<<<<< HEAD
     <a href="post.php">Novo Post</a>
     <a href="chat.php">Conversar</a>
-=======
-    <a href="post.php">Post</a>
->>>>>>> 9778cae088c841f551f9370d227989bcb28ef7bc
     <a href="perfil.php">Meu Perfil</a>
     <a href="logout.php">Sair</a>
 </div>
