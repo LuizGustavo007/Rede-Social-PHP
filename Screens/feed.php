@@ -41,20 +41,25 @@ $posts = $stmt->fetchAll();
 <head>
     <meta charset="UTF-8">
     <title>Feed</title>
+    <link rel="stylesheet" href="../css/feed.css">
 </head>
 <body>
 
 <!-- Navbar -->
 <div class="navbar">
     <a href="feed.php">Feed</a>
+<<<<<<< HEAD
     <a href="post.php">Novo Post</a>
     <a href="chat.php">Conversar</a>
+=======
+    <a href="post.php">Post</a>
+>>>>>>> 9e9a547b9583cdc7eac03d940cca1d647b9160e8
     <a href="perfil.php">Meu Perfil</a>
     <a href="logout.php">Sair</a>
 </div>
 
 <div class="container">
-    <h2>Bem-vindo, <?= htmlspecialchars($_SESSION['user_name']) ?> 👋</h2>
+    <h2>Bem-vindo, <?= htmlspecialchars($_SESSION['user_name']) ?> </h2>
 
     <!-- Exibição dos posts -->
     <?php if(empty($posts)): ?>
