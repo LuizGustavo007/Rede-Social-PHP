@@ -96,23 +96,21 @@ $posts = $stmt->fetchAll();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Meus Posts</title>
-    <style>
-        body { font-family: Arial, sans-serif; background:#f9f9f9; padding:20px; }
-        .post { background:#fff; border:1px solid #ccc; padding:15px; margin:10px 0; border-radius:8px; }
-        .post img { max-width:300px; display:block; margin-top:10px; }
-        textarea { width:100%; height:80px; }
-        button { margin-top:5px; }
-    </style>
+    <link rel="stylesheet" href="../css/post.css">
 </head>
 <body>
+<div class="navbar">
+    <a href="feed.php">Feed</a>
+    <a href="post.php">Post</a>
+    <a href="perfil.php">Meu Perfil</a>
+    <a href="logout.php">Sair</a>
+</div>
+
 
 <h2>Meus Posts</h2>
-<a href="feed.php">Voltar ao Feed</a> | <a href="logout.php">Sair</a>
 <?php if($message) echo "<p><strong>$message</strong></p>"; ?>
 
 <!-- Criar novo post -->
-<h3>Criar Novo Post</h3>
 <form method="post" enctype="multipart/form-data">
     <textarea name="content" placeholder="O que você está pensando?" required></textarea><br>
     Imagem: <input type="file" name="media"><br>
