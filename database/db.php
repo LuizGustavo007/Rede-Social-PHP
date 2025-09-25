@@ -1,6 +1,6 @@
 <?php
 $host = "18.212.232.136";
-$db = "conecta_tech_social";
+$db = "conecta_tech";
 $user = "admin";
 $pass = "lz.stna07";
 
